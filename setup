@@ -1,0 +1,114 @@
+#! /bin/csh -f
+# setup for UNIX (tested on AIX only)
+cd om 
+echo "compiling object model..."
+javac *.java
+cd ../lib
+echo "compiling metaclass library..."
+javac *.java
+cd ../test
+echo "compiling tests..."
+setenv CLASSPATH ../..:$CLASSPATH
+javac *.java
+cd ../ex
+echo "compiling exercises..."
+setenv CLASSPATH ../..:$CLASSPATH
+javac *.java
+
+cd ../test
+echo "executing tests..."
+set allokay = "true"
+
+java XTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java MROTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java EMTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java CTSTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java CoopTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java STracedTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java BATest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java BATest1
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java BATest2
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java BATest3
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java ProxyTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java ICTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java SITest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java ABTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java FITest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java NONITest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+java PMCTest
+if ($status > 0) then
+    set allokay = "false"
+    endif
+
+
+cd ..
+if ( $allokay == "true" ) then
+    echo "*************************"
+    echo "******** Success ********"
+    echo "*************************"
+    endif
+

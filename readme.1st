@@ -1,0 +1,27 @@
+This directory contains a simulation of our metaobject protocol and
+the metaclasses of the book.  The programming style is chosen to follow
+the book as closely as possible and be as clear as possible.
+
+Requirements:
+        Java 1.0
+
+To compile and run:
+	Windows95 and OS/2, type:
+		setup
+	Unix, type:
+		chmod +x setup
+		setup
+
+Subdirectories:
+        om -    package that contains the object model
+                and the metaobject protocol
+        lib -   package that contains the metaclass
+                framework from the book
+        test -  classes to test our metaobject protocol
+                and the metaclass framework
+
+This simulation is certainly not self-documenting.  One needs to read the
+book to understand the simulation.  Keep in mind that the book is a specification
+and this simulation is but one implementation satisfying that specification.
+
+
